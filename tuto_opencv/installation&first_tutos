@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-site-verification" content="zXL2CVbtC_Krma8l8C6ZtsG0LYFNWiAR5ZI70hz4xAM" />
+    <meta name="msvalidate.01" content="89359D9C492A475C0061398008D105FB" />
+    <meta name="yandex-verification" content="dd35362233c19552" />
+
+    <title>opencv - Commencer avec opencv | opencv Tutorial</title>
+        <link rel="canonical" href="https://riptutorial.com/opencv">
+
+    <!-- icon !-->
+    <link rel="icon" type="image/png" href="/Images/logo_rip.png">
+
+    <!-- css !-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    
+    <link rel="stylesheet" type="text/css" href="/styles/master.min.css?v=1.0.0.25617">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.min.css" />
+
+    <!-- Open Graph Tags -->
+    <meta name="title" property="og:title" content="opencv - Commencer avec opencv | opencv Tutorial">
+    <meta name="description" property="og:description" content="opencv documentation: Commencer avec opencv">
+    <meta name="url" property="og:url" content="https://riptutorial.com/fr/opencv" />
+    <meta name="image" property="og:image" content="/Images/home.jpg" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="opencv - Commencer avec opencv | opencv Tutorial">
+    <meta name="twitter:description" content="opencv documentation: Commencer avec opencv">
+    <meta name="twitter:url" content="https://riptutorial.com/fr/opencv" />
+    <meta name="twitter:image" content="/Images/home.jpg" />
+    
+    
+</head>
+
+<body>
+
+<!-- facebook
+<div id="fb-root"></div>
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+<!-- twitter
+<script>
+    !function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+-->
+<header class="site-header">
+    <nav class="container-fluid navbar navbar-light navbar-expand-lg">
+        <a class="navbar-brand" href="/fr/home">
+            <img src="/Images/logo_rip_full_white.png" />
+            RIP <span class="text-z">Tutorial</span>
+        </a>
+        <div>
+            <div class="container-language-selector hidden-lg-up">
+                <button class="btn dropdown-toggle" type="button" id="dropdownLanguagesSelectorMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         fr
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownLanguagesSelectorMobile">
+                    <div>
+                        <a class="dropdown-item" href="https://riptutorial.com/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">English (en)</a>
+                        <a class="dropdown-item" href="https://riptutorial.com/fr/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">Français (fr)</a>
+                        <a class="dropdown-item" href="https://riptutorial.com/es/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">Español (es)</a>
+                        <a class="dropdown-item" href="https://riptutorial.com/it/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">Italiano (it)</a>
+                        <a class="dropdown-item" href="https://riptutorial.com/de/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">Deutsch (de)</a>
+                        <a class="dropdown-item" href="https://riptutorial.com/ru/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">русский (ru)</a>
+                        <a class="dropdown-item" href="https://riptutorial.com/ko/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">한국어 (ko)</a>
+                        <a class="dropdown-item" href="https://riptutorial.com/ja/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">日本語 (ja)</a>
+                        <a class="dropdown-item" href="https://riptutorial.com/zh-CN/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">中文简体 (zh-CN)</a>
+                        <a class="dropdown-item" href="https://riptutorial.com/zh-TW/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">中文繁體 (zh-TW)</a>
+                    </div>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-site-menu"
+                    aria-controls="nav-site-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="nav-site-menu">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/fr/ebook" class="nav-link">eBooks</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/fr/tag" class="nav-link">Tags</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/fr/topic" class="nav-link">Sujets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/fr/example" class="nav-link">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/fr/contributor" class="nav-link">Contributeurs</a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-collapse collapse justify-content-end" id="site-header-nav-site-menu">
+            <div class="dropdown language-selector text-center">
+              <button class="btn dropdown-toggle" type="button" id="dropdownLanguagesSelector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-globe"></i> Fran&#231;ais (fr)
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownLanguagesSelector">
+                  <div>
+                      <a class="dropdown-item" href="https://riptutorial.com/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">English (en)</a>
+                      <a class="dropdown-item" href="https://riptutorial.com/fr/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">Français (fr)</a>
+                      <a class="dropdown-item" href="https://riptutorial.com/es/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">Español (es)</a>
+                      <a class="dropdown-item" href="https://riptutorial.com/it/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">Italiano (it)</a>
+                      <a class="dropdown-item" href="https://riptutorial.com/de/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">Deutsch (de)</a>
+                      <a class="dropdown-item" href="https://riptutorial.com/ru/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">русский (ru)</a>
+                      <a class="dropdown-item" href="https://riptutorial.com/ko/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">한국어 (ko)</a>
+                      <a class="dropdown-item" href="https://riptutorial.com/ja/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">日本語 (ja)</a>
+                      <a class="dropdown-item" href="https://riptutorial.com/zh-CN/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">中文简体 (zh-CN)</a>
+                      <a class="dropdown-item" href="https://riptutorial.com/zh-TW/opencv" onclick="gtag('event', 'click', {'event_action': 'button-language'});">中文繁體 (zh-TW)</a>
+                  </div>
+              </div>
+            </div>
+            <form action="/fr/topic" method="get"> 
+                <input class="form-control mr-sm-2 search grow" name="q" placeholder="Recherche…" type="text">
+            </form>
+        </div>
+    </nav>
+</header>
+
+<div class="container-fluid site-body">
+    
+
+<div class="nav-site">
+    <a href="/fr/ebook/opencv" id="pdf-download-btn" class="btn btn-z bordered" onclick="gtag('event', 'click', {'event_action': 'button-aside-download'});"><i class="fas fa-file-pdf" aria-hidden="true" ></i> Download opencv (PDF)</a>
+    <nav class="navbar navbar-light navbar-expand-lg hidden-lg-up" style="padding-left: 0; padding-right: 0;">
+        <a class="nav-brand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-sidebar"
+                aria-controls="nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse justify-content-end" id="nav-sidebar">
+            <br />
+            <div class="section-sidebar">
+
+                <h2>
+                    <span class="tag-title">opencv</span>
+                </h2>
+                <ul>
+                        <li>
+                            <a href="/fr/opencv/topic/800/commencer-avec-opencv" class="active">Commencer avec opencv</a>
+                        </li>
+                            <ul>
+                            </ul>
+                        <li>
+                            <a href="/fr/opencv/topic/1957/acces-aux-pixels" class="">Accès aux pixels</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/3306/afficher-l-image-opencv" class="">Afficher l&#39;image OpenCV</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6658/chargement-et-enregistrement-de-differents-formats-de-supports" class="">Chargement et enregistrement de différents formats de supports</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6562/classificateurs-en-cascade" class="">Classificateurs en cascade</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6100/construire-et-compiler-opencv-3-1-0-dev-pour-python2-sous-windows-en-utilisant-cmake-et-visual-studio" class="">Construire et compiler opencv 3.1.0-dev pour Python2 sous Windows en utilisant CMake et Visual Studio</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6917/contraste-et-luminosite-en-c-plusplus" class="">Contraste et luminosité en C ++</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/9196/creer-une-video" class="">Créer une vidéo</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/9749/dessin-de-formes--ligne--cercle-------etc---en-c-plusplus" class="">Dessin de formes (ligne, cercle, ..., etc.) en C ++</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6735/detection-d-objets" class="">Détection d&#39;objets</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6589/detection-de-blob" class="">Détection de blob</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6099/detection-de-bord" class="">Détection de bord</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6153/fonctions-de-dessin-en-java" class="">Fonctions de dessin en Java</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/7545/initialisation-opencv-sous-android" class="">Initialisation OpenCV sous Android</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/8934/installation-opencv" class="">Installation OpenCV</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6307/modification-du-contenu-de-l-image" class="">Modification du contenu de l&#39;image</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/9099/structures-de-base" class="">Structures de base</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/2032/traitement-d-image" class="">Traitement d&#39;image</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6377/utilisation-de-classificateurs-en-cascade-en-java" class="">Utilisation de classificateurs en cascade en Java</a>
+                        </li>
+                        <li>
+                            <a href="/fr/opencv/topic/6803/utiliser-videocapture-avec-opencv-python" class="">Utiliser VideoCapture avec OpenCV Python</a>
+                        </li>
+                </ul>
+            </div>
+            <br /><br />
+        </div>
+    </nav>
+</div>
+
+<div class="row whole-container">
+    <div class="col-lg-2 section-sidebar desktop hidden-md-down">
+        <div class="section-sidebar-overflow custom-scrollbar" data-mcs-theme="dark">
+            <img src="/Images/logo_sidebar.png"/>
+            <h2><span class="tag-title">opencv</span></h2>
+            <ul>
+                    <li>
+                        <a href="/fr/opencv/topic/800/commencer-avec-opencv" class="active">Commencer avec opencv</a>
+                    </li>
+                        <ul>
+                        </ul>
+                    <li>
+                        <a href="/fr/opencv/topic/1957/acces-aux-pixels" class="">Accès aux pixels</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/3306/afficher-l-image-opencv" class="">Afficher l&#39;image OpenCV</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6658/chargement-et-enregistrement-de-differents-formats-de-supports" class="">Chargement et enregistrement de différents formats de supports</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6562/classificateurs-en-cascade" class="">Classificateurs en cascade</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6100/construire-et-compiler-opencv-3-1-0-dev-pour-python2-sous-windows-en-utilisant-cmake-et-visual-studio" class="">Construire et compiler opencv 3.1.0-dev pour Python2 sous Windows en utilisant CMake et Visual Studio</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6917/contraste-et-luminosite-en-c-plusplus" class="">Contraste et luminosité en C ++</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/9196/creer-une-video" class="">Créer une vidéo</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/9749/dessin-de-formes--ligne--cercle-------etc---en-c-plusplus" class="">Dessin de formes (ligne, cercle, ..., etc.) en C ++</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6735/detection-d-objets" class="">Détection d&#39;objets</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6589/detection-de-blob" class="">Détection de blob</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6099/detection-de-bord" class="">Détection de bord</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6153/fonctions-de-dessin-en-java" class="">Fonctions de dessin en Java</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/7545/initialisation-opencv-sous-android" class="">Initialisation OpenCV sous Android</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/8934/installation-opencv" class="">Installation OpenCV</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6307/modification-du-contenu-de-l-image" class="">Modification du contenu de l&#39;image</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/9099/structures-de-base" class="">Structures de base</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/2032/traitement-d-image" class="">Traitement d&#39;image</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6377/utilisation-de-classificateurs-en-cascade-en-java" class="">Utilisation de classificateurs en cascade en Java</a>
+                    </li>
+                    <li>
+                        <a href="/fr/opencv/topic/6803/utiliser-videocapture-avec-opencv-python" class="">Utiliser VideoCapture avec OpenCV Python</a>
+                    </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="col-lg-8 section-article">
+ 
+
+        
+
+        
+
+        <div class="header-article">
+            <h1><span>opencv</span>Commencer avec opencv</h1>
+            <div class="addthis_inline_share_toolbox" data-url="https://riptutorial.com/" data-title="Learn opencv - Over 1000 Free Tutorial:" onclick="gtag('event', 'click', {'event_action': 'button-share'});"></div>
+            <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7ITK3E&placement=riptutorialcom" id="_carbonads_js"></script>
+            <div class="container-download-pdf-section top-article">
+                <a href="/fr/ebook/opencv" class="" onclick="gtag('event', 'click', {'event_action': 'button-header-download'});">
+                    <img src="/Images/pdf-icon.png"> Download <span>opencv</span> for free
+                </a>
+            </div>
+        </div>
+
+        <div class="body-article">
+
+
+
+                <h2>Remarques</h2>
+                <div>
+                    <p> Cette section fournit une vue d&#39;ensemble de ce qu&#39;est une ouverture, et pourquoi un développeur peut vouloir l&#39;utiliser. </p><p> Il devrait également mentionner tous les grands sujets à l’intérieur du forum, et les relier aux sujets connexes. La documentation de opencv étant nouvelle, vous devrez peut-être créer des versions initiales de ces rubriques connexes. </p>
+                </div>
+
+                <h2>Versions</h2>
+                <div>
+                    <h1> OpenCV 3 </h1><table><thead><tr><th> Version </th><th> Date de sortie </th></tr></thead><tbody><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/3.2.0" rel="nofollow noreferrer">3.2</a> </td><td> 2016-12-23 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/3.1.0" rel="nofollow noreferrer">3.1</a> </td><td> 2015-12-18 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/3.0.0" rel="nofollow noreferrer">3.0</a> </td><td> 2015-06-03 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/3.0.0-rc1" rel="nofollow noreferrer">3.0 RC1</a> </td><td> 2015-04-23 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/3.0.0-beta" rel="nofollow noreferrer">3.0 bêta</a> </td><td> 2014-11-07 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/3.0.0-alpha" rel="nofollow noreferrer">3.0 alpha</a> </td><td> 2014-08-21 </td></tr></tbody></table><h1> OpenCV 2 </h1><table><thead><tr><th> Version </th><th> Date de sortie </th></tr></thead><tbody><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/2.4.13" rel="nofollow noreferrer">2.4.13</a> </td><td> 2016-05-19 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/2.4.12" rel="nofollow noreferrer">2.4.12</a> </td><td> 2015-07-30 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/2.4.11" rel="nofollow noreferrer">2.4.11</a> </td><td> 2015-02-25 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/2.4.10" rel="nofollow noreferrer">2.4.10</a> </td><td> 2014-10-01 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/2.4.9" rel="nofollow noreferrer">2.4.9</a> </td><td> 2014-04-14 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/2.3.1" rel="nofollow noreferrer">2.3.1</a> </td><td> 2011-08-17 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/2.3.0" rel="nofollow noreferrer">2.3.0</a> </td><td> 2011-07-04 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/releases/tag/2.2" rel="nofollow noreferrer">2.2.0</a> </td><td> 2010-12-05 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/wiki/ChangeLog_v10-v21#21" rel="nofollow noreferrer">2.1.0</a> </td><td> 2010-04-06 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/wiki/ChangeLog_v10-v21#20" rel="nofollow noreferrer">2.0.0</a> </td><td> 2009-10-01 </td></tr><tr><td> <a href="https://github.com/opencv/opencv/wiki/ChangeLog_v10-v21#10" rel="nofollow noreferrer">1.0.0</a> </td><td> 2006-10-19 </td></tr></tbody></table>
+                </div>
+
+                    <h2>Construire et installer OpenCV à partir des sources</h2>
+<p> Ceci est un guide étape par étape pour installer OpenCV 3 sur un système Linux basé sur Debian à partir de la source. Les étapes doivent rester les mêmes pour les autres distributions, il suffit de remplacer les commandes du gestionnaire de packages pertinentes lors de l&#39;installation des packages pour la génération. </p><p> <strong>Remarque:</strong> Si vous n&#39;avez pas envie de perdre du temps à créer des éléments ou à ne pas aimer le terminal, vous pouvez très probablement installer OpenCV à partir de l&#39;interface graphique du gestionnaire de paquets Synaptic. Cependant, ces bibliothèques sont souvent obsolètes. </p><h2> Préparez-vous à la construction </h2><p> Emettez les commandes suivantes dans votre terminal pour installer les packages requis: </p><pre><code>sudo apt-get update
+sudo apt-get install build-essential
+sudo apt-get install cmake git libgtk2.0-dev pkg-config \
+                     libavcodec-dev libavformat-dev libswscale-dev
+</code> </pre><p> Les packages suivants sont facultatifs: </p><pre><code>sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev \
+                     libpng-devlibtiff-dev libjasper-dev libdc1394-22-dev
+</code> </pre><p> Emettez la commande suivante pour obtenir le code source OpenCV et préparer la génération: </p><pre><code>mkdir ~/src
+cd ~/src
+git clone https://github.com/opencv/opencv.git
+cd opencv
+mkdir build &amp;&amp; cd build
+</code> </pre><h2> Construire et installer </h2><p> Nous incluons les exemples dans la construction, mais n&#39;hésitez pas à les laisser de côté. N&#39;hésitez pas non plus à définir d&#39;autres drapeaux et à personnaliser votre build comme vous le souhaitez. </p><pre><code>cmake -D CMAKE_BUILD_TYPE=RELEASE \
+      -D CMAKE_INSTALL_PREFIX=/usr/local \
+      -D INSTALL_PYTHON_EXAMPLES=ON \
+      -D INSTALL_C_EXAMPLES=ON ..
+</code> </pre><p> Si CMake n&#39;a pas signalé d&#39;erreurs ou de bibliothèques manquantes, poursuivez la construction. </p><pre><code>make -j$(nproc)
+</code> </pre><p> Si aucune erreur n&#39;a été produite, nous pouvons continuer à installer OpenCV sur le système: </p><pre><code>sudo make install
+</code> </pre><p> Maintenant, OpenCV devrait être disponible pour votre système. Vous pouvez utiliser les lignes suivantes pour savoir où OpenCV a été installé et quelles bibliothèques ont été installées: </p><pre class="lang-sh prettyprint-override"><code>pkg-config --cflags opencv  # get the include path (-I)
+pkg-config --libs opencv    # get the libraries path (-L) and the libraries (-l)
+</code> </pre><h2> Test d&#39;installation </h2><p> Nous construisons d’abord les exemples C ++: </p><pre><code>cd ~/src/opencv/samples
+cmake .
+make
+</code> </pre><p> Si aucune erreur n&#39;a été produite, exécutez un échantillon, par exemple </p><pre><code>./cpp/cpp-example-edge
+</code> </pre><p> Si l&#39;exemple s&#39;exécute, les bibliothèques C ++ sont correctement installées. </p><p> Ensuite, testez les liaisons Python: </p><pre><code>python
+&gt;&gt; import cv2
+&gt;&gt; print cv2.__version__
+</code> </pre><p> Si ces commandes importent OpenCV et impriment la version correcte sans se plaindre, alors les liaisons Python sont correctement installées. </p><p> Félicitations, vous venez de construire et d&#39;installer OpenCV. Bonne programmation! </p><p> Pour Mac, reportez-vous ici à l&#39; <a href="http://stackoverflow.com/questions/19671827/opencv-installation-on-mac-os-x">installation d&#39;OpenCV sur Mac OS X</a> </p>                    <h2>Obtenez une image de webcam</h2>
+<p> Affichez un flux vidéo en direct provenant d&#39;une webcam à l&#39;aide de la classe VideoCapture d&#39;OpenCV avec Java, C / C ++ et Python. </p><h1> Java </h1><pre class="lang-java prettyprint-override"><code>import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.videoio.VideoCapture;
+ 
+public class Camera {
+    public static void main(String[] args) {
+        // Load Native Library
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        // image container object
+        Mat imageArray = new Mat();
+        // Video device acces
+        VideoCapture videoDevice = new VideoCapture();
+        // 0:Start default video device 1,2 etc video device id
+        videoDevice.open(0);
+        // is contected
+        if (videoDevice.isOpened()) {
+        // Get frame from camera
+            videoDevice.read(imageArray);
+            // image array
+            System.out.println(imageArray.toString());
+            // Release video device
+            videoDevice.release();
+        } else {
+            System.out.println(&quot;Error.&quot;);
+        }
+    }
+}
+</code> </pre><h1> C ++ </h1><pre class="lang-cpp prettyprint-override"><code>#include &quot;opencv2/opencv.hpp&quot;
+#include &quot;iostream&quot;
+
+int main(int, char**) {
+    // open the first webcam plugged in the computer
+    cv::VideoCapture camera(0);
+    if (!camera.isOpened()) {
+        std::cerr &lt;&lt; &quot;ERROR: Could not open camera&quot; &lt;&lt; std::endl;
+        return 1;
+    }
+
+    // create a window to display the images from the webcam
+    cv::namedWindow(&quot;Webcam&quot;, CV_WINDOW_AUTOSIZE);
+
+    // this will contain the image from the webcam
+    cv::Mat frame;
+        
+    // capture the next frame from the webcam
+    camera &gt;&gt; frame;
+    
+    // display the frame until you press a key
+    while (1) {
+        // show the image on the window
+        cv::imshow(&quot;Webcam&quot;, frame);
+        // wait (10ms) for a key to be pressed
+        if (cv::waitKey(10) &gt;= 0)
+            break;
+    }
+    return 0;
+}
+</code> </pre><h1> Python </h1><pre><code>import numpy as np
+import cv2
+
+# Video source - can be camera index number given by 'ls /dev/video*
+# or can be a video file, e.g. '~/Video.avi'
+cap = cv2.VideoCapture(0)
+
+while(True):
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+
+    # Our operations on the frame come here
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Display the resulting frame
+    cv2.imshow('frame',gray)
+    if cv2.waitKey(1) &amp; 0xFF == ord('q'):
+        break
+
+# When everything done, release the capture
+cap.release()
+cv2.destroyAllWindows()
+</code> </pre>                    <h2>Premiers pas avec OpenCV 3.1 sous Windows</h2>
+<p> Nous installons OpenCV 3.1.0 sous Windows et commençons. Il existe deux manières d’installer OpenCV sur Windows. L&#39;une consiste à télécharger le programme d&#39;installation et à l&#39;exécuter. L&#39;autre consiste à construire à partir des sources. </p><p> C&#39;est le moyen le plus simple d&#39;installer OpenCV et de commencer. OpenCV fournit des fichiers binaires de pré-compilation à installer sur Windows <a href="https://sourceforge.net/projects/opencvlibrary/files/opencv-win/" rel="nofollow">ici</a> . Une fois le téléchargement terminé, extrayez-le et installez-le sur le chemin choisi. </p><p> <strong>ProTip:</strong> Assurez-vous que votre chemin OpenCV n&#39;inclut aucun espace. Donc, c&#39;est mieux si vous l&#39;installez simplement dans le répertoire racine C: \ ou D: \ </p><p> Le problème avec la méthode ci-dessus est que vous ne pouvez pas utiliser les modules opencv_contrib. En outre, il ne vient pas avec tous les outils et bibliothèques tiers. Donc, si vous voulez utiliser tout cela, suivez simplement. </p><p> Je vous expliquerai le minimum pour installer OpenCV depuis la source. Pour plus avancé, référez-vous <a href="http://docs.opencv.org/3.1.0/d3/d52/tutorial_windows_install.html#gsc.tab=0" rel="nofollow">ici</a> . </p><ul><li> Installez <a href="http://www.cmake.org/cmake/resources/software.html" rel="nofollow">CMake</a> . </li><li> Clone source OpenCV de <a href="https://github.com/Itseez/opencv.git" rel="nofollow">https://github.com/Itseez/opencv.git</a> dans un répertoire qui n&#39;a pas d&#39;espaces. Appelons-le &quot;OpenCVdir&quot;. <a href="http://i.stack.imgur.com/h9NUM.png" rel="nofollow"><img src="http://i.stack.imgur.com/h9NUM.png" alt="entrer la description de l&#39;image ici" /></a> </li><li> Maintenant, ouvrez l&#39;interface graphique de CMake et ajoutez votre répertoire source (OpenCVdir) au menu Sources et créez le répertoire dans le menu de génération. <strong>Conseil:</strong> S&#39;il n&#39;y a pas de répertoire de compilation, créez-en un dans votre dossier opencv. <a href="http://i.stack.imgur.com/f8OcS.png" rel="nofollow"><img src="http://i.stack.imgur.com/f8OcS.png" alt="entrer la description de l&#39;image ici" /></a> </li><li> Cliquez sur Configurer et sélectionnez votre version du compilateur Visual Studio. J&#39;ai eu Visual Studio 2013 Professional 32 bits, j&#39;ai donc choisi le compilateur Visual Studio 12. <a href="http://i.stack.imgur.com/eDtev.png" rel="nofollow"><img src="http://i.stack.imgur.com/eDtev.png" alt="entrer la description de l&#39;image ici" /></a> </li></ul><p> <strong>Conseil:</strong> vous pouvez télécharger Visual Studio 2013 Professional à partir d&#39;ici. Il est livré avec 30 jours d&#39;essai + 90 jours de prolongation après s&#39;être connecté. </p><ul><li> Appuyez sur Terminer et CMake chargera tous les paquets automatiquement. Vous pouvez ajouter ou supprimer des packages. Appuyez à nouveau sur Configure. </li><li> Si vous voulez construire avec des modules opencv_contrib supplémentaires, vous devez les télécharger <a href="https://github.com/Itseez/opencv_contrib" rel="nofollow">ici</a> . Ensuite, extrayez-les et ajoutez le répertoire opencv_contrib / modules à votre CMake comme indiqué ci-dessous. <a href="http://i.stack.imgur.com/j6VKr.png" rel="nofollow"><img src="http://i.stack.imgur.com/j6VKr.png" alt="entrer la description de l&#39;image ici" /></a> </li><li> Maintenant, appuyez à nouveau sur Configurer, puis appuyez sur Générer. </li><li> Fermer CMake. Allez dans le dossier your_opencv \ build et ouvrez le fichier nommé &#39;OpenCV.sln&#39;. - Il va ouvrir Visual Studio. Maintenant, lancez-le dans les deux Debug <a href="http://i.stack.imgur.com/sli3t.png" rel="nofollow"><img src="http://i.stack.imgur.com/sli3t.png" alt="entrer la description de l&#39;image ici" /></a> mode et libération <a href="http://i.stack.imgur.com/qfNeL.png" rel="nofollow"><img src="http://i.stack.imgur.com/qfNeL.png" alt="entrer la description de l&#39;image ici" /></a> mode. </li><li> Maintenant, dans l&#39;explorateur de solutions en haut à droite de Visual Studio, sélectionnez le projet INSTALL et construisez-le. <a href="http://i.stack.imgur.com/MTQpV.png" rel="nofollow"><img src="http://i.stack.imgur.com/MTQpV.png" alt="entrer la description de l&#39;image ici" /></a> </li></ul><p> Hourra!! Profitez de votre OpenCV. </p><p> <strong>L&#39;ajout du répertoire d&#39;inclusion OpenCV à la variable PATH de la variable d&#39;environnement:</strong> </p><ul><li><p> Accédez à Propriétés système et cliquez sur Paramètres système avancés. <a href="http://i.stack.imgur.com/18Tro.png" rel="nofollow"><img src="http://i.stack.imgur.com/18Tro.png" alt="entrer la description de l&#39;image ici" /></a> </p></li><li><p> Maintenant, cliquez sur Variables d&#39;environnement &gt;&gt; Chemin &gt;&gt; Modifier. <a href="http://i.stack.imgur.com/B8Yr7.png" rel="nofollow"><img src="http://i.stack.imgur.com/B8Yr7.png" alt="entrer la description de l&#39;image ici" /></a> </p></li><li><p> Ici, ajoutez le dossier bin situé dans votre dossier OpenCVdir / build / install / x86 / vc ** / bin à cette variable. Veillez à ne pas remplacer les valeurs de chemin existantes. </p></li><li><p> Après cela, vous devez redémarrer votre système pour que les variables d&#39;environnement changent et que vous êtes maintenant prêt. </p></li></ul>                    <h2>Bonjour exemple mondial en java</h2>
+<p> Image OpenCv lue depuis le système de fichiers en Java </p><pre><code>import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
+ 
+public class Giris {    
+    public static void main(String[] args) {
+        //Load native library
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        //image container object
+        Mat imageArray;
+        //Read image from file system
+        imageArray=Imgcodecs.imread(&quot;C:\\Users\\mesutpiskin\\sample.jpg&quot;);
+        //Get image with &amp; height
+        System.out.println(imageArray.rows());
+        System.out.println(imageArray.cols());
+    }
+}
+</code> </pre>                    <h2>Charger et afficher une image avec OpenCV</h2>
+<p> Avec cet exemple, nous verrons comment charger une image couleur à partir du disque et l&#39;afficher à l&#39;aide des fonctions intégrées d&#39;OpenCV. Pour ce faire, nous pouvons utiliser les liaisons C / C ++, Python ou Java. </p><p> <strong>En C ++:</strong> </p><pre class="lang-cpp prettyprint-override"><code>#include &lt;opencv2/core.hpp&gt;
+#include &lt;opencv2/highgui.hpp&gt;
+
+#include &lt;iostream&gt;
+
+using namespace cv;
+
+int main(int argc, char** argv) {
+    // We'll start by loading an image from the drive
+    Mat image = imread(&quot;image.jpg&quot;, CV_LOAD_IMAGE_COLOR);
+
+    // We check that our image has been correctly loaded
+    if(image.empty()) {
+        std::cout &lt;&lt; &quot;Error: the image has been incorrectly loaded.&quot; &lt;&lt; std::endl;
+        return 0;
+    }
+
+    // Then we create a window to display our image
+    namedWindow(&quot;My first OpenCV window&quot;);
+
+    // Finally, we display our image and ask the program to wait for a key to be pressed
+    imshow(&quot;My first OpenCV window&quot;, image);
+    waitKey(0);
+
+    return 0;
+}
+</code> </pre><p> <strong>En Python:</strong> </p><pre class="lang-py prettyprint-override"><code>import sys
+import cv2
+
+# We load the image from disk
+img = cv2.imread(&quot;image.jpg&quot;, cv2.CV_LOAD_IMAGE_COLOR)
+
+# We check that our image has been correctly loaded
+if img.size == 0
+    sys.exit(&quot;Error: the image has not been correctly loaded.&quot;)
+
+# We create a window to display our image
+cv2.namedwindow(&quot;My first OpenCV window&quot;)
+
+# We display our image and ask the program to wait until a key is pressed
+cv2.imshow(&quot;My first OpenCV window&quot;, img)
+cv2.waitKey(0)
+
+# We close the window
+cv2.destroyAllWindows()
+</code> </pre><p> <strong>En Java:</strong> </p><pre class="lang-java prettyprint-override"><code>import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.CvType;
+import org.opencv.highgui.Highgui;
+public class Sample{
+public static void main (String[] args) {
+
+    //Load native opencv library
+    System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+
+    //Read image from file first param:file location ,second param:color space
+    Mat img = imread(&quot;image.jpg&quot;,CV_LOAD_IMAGE_COLOR);
+
+    //If the image is successfully read.
+    if (img.size() == 0) {
+        System.exit(1);
+    }
+}
+</code> </pre><p> HighGui n&#39;a aucune fenêtre nommée ni équivalent dans opencv java. Utilisez swing ou swt pour afficher l&#39;image. </p>                    <h2>Quoi et pourquoi OPENCV?</h2>
+<p> OpenCV (Open Source Computer Vision Library) est une bibliothèque de logiciels et de logiciels d&#39;apprentissage automatique. Il a été conçu pour divers objectifs tels que l&#39;apprentissage automatique, la vision par ordinateur, l&#39;algorithme, les opérations mathématiques, la capture vidéo, le traitement d&#39;images, etc. , android, ios). En outre, il a enveloppé dans divers langages de programmation renommés. Dans le cadre du contrat de licence, les entreprises peuvent accéder au code et le modifier. </p><p> La bibliothèque contient plus de 2500 algorithmes optimisés, qui ont une excellente précision en termes de performances et de vitesse. Ces algorithmes peuvent être utilisés pour détecter et reconnaître des visages, identifier des objets, classer des actions humaines dans des vidéos, suivre des mouvements de caméra, suivre des objets en mouvement, extraire des modèles 3D d&#39;objets, produire des nuages ​​de points 3D à partir de caméras stéréo image d&#39;une scène entière, trouver des images similaires à partir d&#39;une base de données d&#39;images, supprimer les yeux rouges des images prises, suivre les mouvements oculaires, reconnaître les décors et établir des marqueurs pour la superposer à la réalité augmentée. , les développeurs et les chercheurs, le nombre est plus de 47 000 et le nombre estimé de téléchargements dépasse 7 millions. La bibliothèque est largement constituée de sociétés professionnelles, de groupes de recherche et d’autres groupes. </p><p> De nombreuses entreprises bien établies telles que Google, Yahoo, Microsoft, Intel, IBM, Sony, Honda et Toyota qui emploient la bibliothèque, ainsi que de nombreuses startups telles que Applied Minds, VideoSurf et Zeitera, utilisent largement OpenCV. Les utilisations déployées d&#39;OpenCV s&#39;étendent de l&#39;assemblage d&#39;images StreetView, à la détection d&#39;intrusions dans la vidéo de surveillance en Israël, à la surveillance des équipements miniers en Chine, à la détection des accidents de noyade en Europe et à l&#39;art interactif. L&#39;Espagne et New York vérifient les pistes en Turquie et inspectent les étiquettes des produits dans les usines du monde entier pour détecter rapidement les visages au Japon. Il possède des interfaces C ++, C, Python, Java et MATLAB et supporte Windows, Linux, Android et Mac OS. OpenCV s&#39;appuie principalement sur les applications de vision en temps réel et tire parti des instructions MMX et SSE lorsqu&#39;elles sont disponibles. Des interfaces complètes CUDA et OpenCL sont en cours de développement. Il existe plus de 500 algorithmes et environ 10 fois plus de fonctions qui composent ou supportent ces algorithmes. OpenCV est écrit nativement en C ++ et possède une interface basée sur des modèles qui fonctionne de manière transparente avec les conteneurs STL. </p><p> <em>Informations collectées sur le <a href="http://opencv.org/" rel="nofollow">site officiel</a></em> </p>
+            
+            <div class="container-download-pdf-section">
+                <a href="/fr/ebook/opencv" class="" onclick="gtag('event', 'click', {'event_action': 'button-footer-download'});">
+                    <img src="/Images/pdf-icon.png"> Download <span>opencv</span> for free
+                </a>
+            </div>
+
+            <div class="container-next-prev">
+                <div>
+                </div>
+                
+                <div>
+                        <div class="container-next-article d-flex align-items-center">
+                            <span>Accès aux pixels</span>
+                            <a class="btn next" href="/fr/opencv/topic/1957/acces-aux-pixels" onclick="gtag('event', 'click', { 'event_action': 'button-next' });">Next <i class="fas fa-angle-right"></i></a>
+                        </div> 
+                </div>
+            </div>
+            <br>
+            <div class="legal-container">
+                <div>This modified text is an extract of the original Stack Overflow Documentation created by following <a href="/fr/contributor?topicId=800">contributors</a> and released under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC BY-SA 3.0</a></div>
+                <div>This website is not affiliated with <a href="https://stackoverflow.com/questions/tagged/opencv" target="_blank">Stack Overflow</a></div>
+                <div>Email: <a href="mailto: tutorialpedia@outlook.com">tutorialpedia@outlook.com</a></div>
+            </div>
+        </div>
+        
+    
+        
+    </div>
+    <div class="col-lg-2 section-aside" >
+        <div  id="stats-share">
+            
+                <div class="useful-links">
+                    <span class="title"><i class="fas fa-tag"></i> Related Tags</span>
+                    <ul>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/android" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">Android</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/c" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">C Language</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/csharp" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">C# Language</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/cplusplus" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">C++</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/ios" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">iOS</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/java" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">Java Language</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/linux" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">GNU/Linux</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/matlab" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">MATLAB Language</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/python" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">Python Language</a></li>
+                            <li><i class="fas fa-skull"></i> <a href="/fr/qt" onclick="gtag('event', 'click', {'event_action': 'link-related-tag'});">Qt</a></li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+            <br />
+        </div>
+         <br />
+    
+</div>      
+
+<style>
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #707070;
+        color: white;
+        padding-bottom: 12px;
+        padding-top: 12px;
+        text-align: left;
+    }
+</style>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "computerLanguage",
+        "additionalType": "HowTo",
+        "name": "opencv",
+        "description": "Commencer avec opencv"
+    }
+</script>
+
+</div>
+
+
+<a href="#" id="scroll-to-top" class="back-to-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-550f227d1d434855"></script> 
+<script>
+    $(document).ready(function () {
+        $('a').each(function() {
+        var a = new RegExp('/' + window.location.host + '/');
+        if (!a.test(this.href)) {
+            $(this).attr("target","_blank");
+           }
+        });
+    });
+</script>
+<script>
+    $(function() {
+        $("table").addClass("table table-bordered table-hover table-responsive-sm table-striped");
+        $("thead").addClass("thead-dark");
+
+        $('aside a').each(function() {
+            if ($(this).attr('href') == '/{{page.permalink}}' ||
+                $(this).attr('href') == '{{ site.github.url }}/{{page.permalink}}') {
+                $(this).addClass('font-weight-bold');
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $(".section-sidebar.desktop").css("height", "calc(100vh - 64px)");
+        $(".custom-scrollbar").mCustomScrollbar({ scrollInertia: 0 });
+        scrollSidebar();
+    });
+
+    $(window).scroll(function () {
+        heightCalculator();
+    });
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() >= 600) {
+            $('#scroll-to-top').fadeIn(200);
+        } else {
+            $('#scroll-to-top').fadeOut(200);
+        }
+    });
+
+    function scrollSidebar() {
+        var activeItems = $(".section-sidebar-overflow .active");
+
+        if (activeItems.length > 0) {
+            var activeItem = $(activeItems[0]);
+            if (activeItem.offset().top > ($(window).height() / 3) * 2) {
+                $(".custom-scrollbar").mCustomScrollbar('scrollTo', activeItem.offset().top - 120);
+            }
+        }
+    }
+
+    function heightCalculator() {
+        var heightRequired = 64 - $(window).scrollTop();
+        if ($(this).scrollTop() >= 64) {
+            $(".section-sidebar.desktop").css("height", "calc(100vh)");
+            $(".section-aside").css("top", "0px");
+        } else {
+            $(".section-sidebar.desktop").css("height", "calc(100vh - " + heightRequired + "px");
+            $(".section-aside").css("top", 56 - $(window).scrollTop() + "px");
+        }
+    }
+
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-55584370-17"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-55584370-17');
+</script>
+
+</body>
+</html>
