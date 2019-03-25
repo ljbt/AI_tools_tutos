@@ -17,13 +17,13 @@ print("wanted outputs:\n", ys)
 
 model = sklearn.neural_network.MLPClassifier(
     activation='logistic', learning_rate_init=0.01, 
-    max_iter=1000, hidden_layer_sizes=(3,), verbose=True) # logistic sigmoid
+    max_iter=1000, hidden_layer_sizes=(1,), verbose=True) # logistic sigmoid
 print(model.get_params())
 x = time.time()
 model.fit(xs, ys) 
 y = time.time()
 print('score:', model.score(xs, ys))
 print('predictions:', model.predict(xs))
-print('expected:', np.array([0, 1, 1, 0]))
+print('expected:', ys)
 
 print("Execution time: ", y-x)

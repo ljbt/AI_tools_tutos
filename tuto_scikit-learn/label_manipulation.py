@@ -55,5 +55,5 @@ predict correctly these labels"""
 
 clf = OneVsRestClassifier(estimator=SVC(kernel='rbf', gamma='scale') )
 clf.fit(X,y2) #train
-print("\nOutput predictions:\n", list(clf.predict(X[0:1])))
-print("Output wanted:\n", list(y2[0:1]))
+print("\nOutput predictions:\n", list(clf.predict(X[0:3])))
+print("Output wanted:\n", list(y2[0:3]))
