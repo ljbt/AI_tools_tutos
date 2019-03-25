@@ -2,7 +2,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <iostream>
-#include <string>
+#include <string> 
 
 using namespace cv;
 using namespace std;
@@ -33,7 +33,7 @@ string type2str(int type) {
 int main(int argc, char** argv) 
 {
     // We'll start by loading an image from the drive
-    Mat image = imread("../mandala.jpg", CV_LOAD_IMAGE_COLOR);
+    Mat image = imread("./mandala.jpg");
 
     // We check that our image has been correctly loaded
     if(image.empty()) 
