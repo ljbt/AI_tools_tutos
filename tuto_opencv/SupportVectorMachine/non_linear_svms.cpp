@@ -72,7 +72,7 @@ int main()
     labels.rowRange(NTRAINING_SAMPLES, 2*NTRAINING_SAMPLES).setTo(2);  // Class 2
 
     //------------------------ 2. Set up the support vector machines parameters --------------------
-    cout << "Starting training process" << endl;
+    cout << "Setting SVM parameters" << endl;
     //! [init]
     Ptr<SVM> svm = SVM::create();
     svm->setType(SVM::C_SVC);
@@ -83,9 +83,10 @@ int main()
 
     //------------------------ 3. Train the svm ----------------------------------------------------
     //! [train]
+    cout << "Starting training process" << endl;
     svm->train(trainData, ROW_SAMPLE, labels);
-    //! [train]
     cout << "Finished training process" << endl;
+    //! [train]
 
      //------------------------ 4. Show the decision regions ----------------------------------------
     //! [show]

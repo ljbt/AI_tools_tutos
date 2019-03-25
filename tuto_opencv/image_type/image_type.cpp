@@ -1,4 +1,3 @@
-#include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <iostream>
@@ -73,7 +72,6 @@ int main(int argc, char** argv)
     cout << "\ngray image type: " << type2str(gray_image.type()) << endl;
     int pixelGray = (int)image.at<uchar>(0,0);
     cout << "Gray pixel value:\n" << pixelGray << endl;
-
 
 
     waitKey();

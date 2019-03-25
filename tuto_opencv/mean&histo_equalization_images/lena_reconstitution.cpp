@@ -1,6 +1,5 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/core/core.hpp"
 #include <iostream>
 
 using namespace cv;
@@ -9,8 +8,8 @@ using namespace std;
 int main() 
 {
     Mat img1,img2;
-    img1 = imread("lena1.jpg",CV_LOAD_IMAGE_GRAYSCALE);
-    img2 = imread("lena2.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+    img1 = imread("lena1.jpg",IMREAD_GRAYSCALE);
+    img2 = imread("lena2.jpg",IMREAD_GRAYSCALE);
 
     if( ! img1.data || ! img2.data)
     {
@@ -24,8 +23,7 @@ int main()
     img2.convertTo(img2,CV_32FC1);
 
     Mat img3 = (img1+img2)/2.; //mean value between img1 and img2
-
-
+    
     // convert images from gray 8 bit int, to gray 32 bit float for better computations
     img1.convertTo(img1,CV_8UC1); 
     img2.convertTo(img2,CV_8UC1);

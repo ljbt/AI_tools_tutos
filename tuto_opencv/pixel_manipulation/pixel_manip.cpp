@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 
         for(int c = 0; c < im.cols; c++)
         {
-            vec[c] = Vec3b(vec[c][2],vec[c][0],vec[c][1]); // B G Rq
+            vec[c] = Vec3b(vec[c][2],vec[c][0],vec[c][1]); // B G R
         }
     }
 

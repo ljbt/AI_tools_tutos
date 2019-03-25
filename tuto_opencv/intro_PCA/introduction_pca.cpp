@@ -112,7 +112,7 @@ int main(int argc, char** argv)
 
     // Convert image to binary
     Mat bw;
-    threshold(gray, bw, 50, 255, THRESH_BINARY | THRESH_OTSU);
+    threshold(gray, bw, 50, 255,  THRESH_OTSU);
     //! [pre-process]
     imshow("black and white", bw);
 
@@ -132,8 +132,8 @@ int main(int argc, char** argv)
         drawContours(bw, contours, static_cast<int>(i), Scalar(0, 0, 255), 2);
         drawContours(src, contours, static_cast<int>(i), Scalar(0, 0, 255), 2);
         // Find the orientation of each shape
-        getOrientation(contours[i], src);
-        
+        double orientation = getOrientation(contours[i], src);
+        cout << "orientation = " << orientation << endl;
         //! [contours]
         imshow("output", src);
         waitKey();
@@ -142,5 +142,6 @@ int main(int argc, char** argv)
     imshow("output", src);
 
     waitKey(); */
+    destroyAllWindows();
     return 0;
 }
